@@ -9,4 +9,11 @@ class User:
         self.username=username
         self.password=password
     user_list = [] #Empty user list
-       
+    def save_user(self):
+
+        '''
+        save_contact method saves contact objects into contact_list
+        '''
+
+        User.user_list.append(self)
+   
