@@ -41,7 +41,7 @@ def main():
                             pswd = input()
                             save_users(create_user(f_name,l_name,user_name,pswd))
                             print(" ")
-                            print(f'New Account Created for: {first_name} {last_name} using password: {password}')
+                            print(f'New Account Created for: {f_name} {l_name} using username: {user_name} and password: {pswd}')
 if __name__ == '__main__':
 
     main()
