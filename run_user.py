@@ -12,6 +12,13 @@ def save_users(User):
     Function to save contact
     '''
     User.save_user()
+    
+def display_users():
+    '''
+    Function that returns all the saved users
+    '''
+    return User.display_users()
+
 def main():
   
 
@@ -42,6 +49,21 @@ def main():
                             save_users(create_user(f_name,l_name,user_name,pswd))
                             print(" ")
                             print(f'New Account Created for: {f_name} {l_name} using username: {user_name} and password: {pswd}')
+                            
+                            elif short_code == 'dc':
+
+                            if display_contacts():
+                                    print("Here is a list of all users")
+                                    print('\n')
+
+                                    for user in display_users():
+                                            print(f"{user.first_name} {user.last_name} .....{user.username} {user.password}")
+
+                                    print('\n')
+                            else:
+                                    print('\n')
+                                    print("You dont seem to have any users saved yet")
+                                    print('\n')
 if __name__ == '__main__':
 
     main()

@@ -38,7 +38,7 @@ class TestUsers(unittest.TestCase):
             tearDown method that does clean up after each test case has run.
             '''
             User.user_list = []
-            
+
     def test_save_multiple_user(self):
             '''
             test_save_multiple_user to check if we can save multiple user
@@ -48,8 +48,13 @@ class TestUsers(unittest.TestCase):
             test_user = User("Test","Testuser","yvonne","yvonne") # new user
             test_user.save_user()
             self.assertEqual(len(User.user_list),2)
+            
+    def test_display_all_users(self):
+        '''
+        method that returns a list of all users saved
+        '''
 
-if __name__ == '__main__':
-    unittest.main()
+        self.assertEqual(User.display_users(),User.user_list)
+
 if __name__ == '__main__':
     unittest.main()
