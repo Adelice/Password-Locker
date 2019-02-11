@@ -28,7 +28,7 @@ def main():
 
   print('\n')
   while True:
-                    print("Use these short codes : cc - create a new user,\nex -exit the user list ")
+                    print("Use these short codes : cc - create a new user,\n dc - display users, \n ex -exit the user list ")
 
                     short_code = input().lower()
 
@@ -50,9 +50,9 @@ def main():
                             print(" ")
                             print(f'New Account Created for: {f_name} {l_name} using username: {user_name} and password: {pswd}')
                             
-                            elif short_code == 'dc':
+                    elif short_code == 'dc':
 
-                            if display_contacts():
+                            if display_users():
                                     print("Here is a list of all users")
                                     print('\n')
 
