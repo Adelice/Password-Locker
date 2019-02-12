@@ -1,5 +1,5 @@
 #!/usr/bin/env python3.6
-from User import User
+from user import User
 def create_user(fname,lname,usrname,pwd):
     '''
     Function to create a new user
@@ -17,18 +17,23 @@ def display_users():
     '''
     Function that returns all the saved users
     '''
-    return User.display_users()
+    return User.display_users() 
+def check_existing_users(username):
+    '''
+    Function that check if a user exists with that username and return a Boolean
+    '''
+    return User.user_exist(username)
 
 def main():
   
 
   print(f"\t\t\t\t*****WELCOME*****\n ")
-  print("\t\t\t**************************************************\n")
+  print("\t\t\t*******************************\n")
   print("Choose What would you like to do")
 
   print('\n')
   while True:
-                    print("Use these short codes : cc - create a new user,\n dc - display users, \n ex -exit the user list ")
+                    print("Use these short codes :\n cc - create a new user,\n dc - display users, \n ex -exit the user list ")
 
                     short_code = input().lower()
 
@@ -63,7 +68,13 @@ def main():
                             else:
                                     print('\n')
                                     print("You dont seem to have any users saved yet")
-                                    print('\n')
+                   
+                    elif short_code == "ex":
+                            print("Thank You!! Have a nice Time!!1.......")
+                            break
+                    else:
+                              print("I really didn't get that. Please use the short codes")         
+                              print('\n')
 if __name__ == '__main__':
 
     main()

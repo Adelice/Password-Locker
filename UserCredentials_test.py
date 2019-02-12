@@ -1,4 +1,4 @@
-from User import User
+from user import User
 import unittest
 
 class TestUsers(unittest.TestCase):
@@ -48,13 +48,25 @@ class TestUsers(unittest.TestCase):
             test_user = User("Test","Testuser","yvonne","yvonne") # new user
             test_user.save_user()
             self.assertEqual(len(User.user_list),2)
-            
+
     def test_display_all_users(self):
         '''
         method that returns a list of all users saved
         '''
 
         self.assertEqual(User.display_users(),User.user_list)
+    def test_user_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the user.
+        '''
+
+        self.new_user.save_user()
+        test_user = User("Test","Testuser","yvonne","yvonne") # new contact
+        test_user.save_user()
+
+        user_exists = User.user_exist("yvonne")
+
+        self.assertTrue(user_exists)
 
 if __name__ == '__main__':
     unittest.main()
