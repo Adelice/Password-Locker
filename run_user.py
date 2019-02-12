@@ -1,5 +1,7 @@
 #!/usr/bin/env python3.6
 from user import User
+from Credentials import Credential
+
 def create_user(fname,lname,usrname,pwd):
     '''
     Function to create a new user
@@ -27,8 +29,9 @@ def check_existing_users(username):
 def main():
   
 
-  print(f"\t\t\t\t*****WELCOME*****\n ")
-  print("\t\t\t*******************************\n")
+  print(f"\t\t***********WELCOME************\n ")
+  print("\t\t*******************************\n")
+  print("\t\t______________PASSWORD LOCKER_______________\n")        
   print("Choose What would you like to do")
 
   print('\n')
@@ -70,7 +73,7 @@ def main():
                                     print("You dont seem to have any users saved yet")
                    
                     elif short_code == "ex":
-                            print("Thank You!! Have a nice Time!!1.......")
+                            print("################Thank You!! Have a nice Time!!")
                             break
                     else:
                               print("I really didn't get that. Please use the short codes")         

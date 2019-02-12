@@ -1,4 +1,5 @@
 from user import User
+
 import unittest
 
 class TestUsers(unittest.TestCase):
@@ -67,6 +68,8 @@ class TestUsers(unittest.TestCase):
         user_exists = User.user_exist("yvonne")
 
         self.assertTrue(user_exists)
+
+
 
 if __name__ == '__main__':
     unittest.main()
