@@ -34,7 +34,7 @@ def verify_user(first_name,password):
 
 
 
-def create_credential(user_name,site_name,account_name,password):
+def create_credential(user_name,site_name,password):
 	'''
 	Function to create a new credential
 	'''
@@ -57,7 +57,7 @@ def main():
 
   print('\n')
   while True:
-                    print("Use these short codes :\n cc - create a new user,\n dc - display users, \n ex -exit the user list ")
+                    print("Use these short codes :\n cc - create a new user,\n lo - Login\n dc - display users, \n ex -exit the user list ")
 
                     short_code = input().lower()
 
@@ -81,9 +81,38 @@ def main():
                     elif short_code == 'lo':
                             print("-"*60)
                             print('To login, enter your account details:')
-                            user_name = input('Enter your first name - ').strip()
+                            user_name = input('Enter your username - ').strip()
                             password = str(input('Enter your password - '))
-                                    
+                            user_exists = verify_user(user_name,password)
+                            if user_exists == user_name:
+                                    print(f'Welcome {user_name}. Please choose an option to continue.')
+                                    print("-"*60)
+                                    print(' cc-Create a Credential \n dc-Display Credentials \n ex-Exit')
+                                    short_code = input('Enter a choice: ').lower()
+                                    if short_code == 'ex':
+                                            print(f'Goodbye {user_name}')
+                                            break
+                                    elif short_code == 'cc':
+                                             print('Enter your credential details:')
+                                             site_name = input('Enter the site name- ').strip()
+                                             while True:
+                                                     print('Please choose an option for entering a password: \n ep-enter existing password \n gp-generate a password \n ex-exit')
+                                                     psw_choice = input('Enter an option: ').lower().strip() 
+                                                     print("-"*60)
+                                                     if psw_choice == 'ep':
+                                                             print(" ")
+                                                             password = input('Enter your password: ').strip()
+                                                             break 
+                                                     elif psw_choice == 'gp':
+                                                             #password = generate_password()
+                                                             break
+                                                     elif psw_choice == 'ex':
+                                                             break
+                                                     else:
+                                                            print('Wrong option entered. Try again.')
+                            save_credential(create_credential(user_name,site_name,password))
+                            print(f'Credential Created: Site Name: {site_name} - Password: {password}')                                  
+
                     elif short_code == 'dc':
 
                             if display_users():
