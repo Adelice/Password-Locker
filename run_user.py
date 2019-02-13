@@ -25,11 +25,11 @@ def check_existing_users(username):
     Function that check if a user exists with that username and return a Boolean
     '''
     return User.user_exist(username)
-def verify_user(first_name,password):
+def verify_user(user_name,password):
 	'''
 	Function that verifies the existance of the user before creating credentials
 	'''
-	checking_user = Credential.check_user(first_name,password)
+	checking_user = Credential.check_user(user_name,password)
 	return checking_user
 
 
@@ -46,6 +46,11 @@ def save_credential(credential):
 	Function to save a newly created credential
 	'''
 	Credential.save_credentials(credential)
+def display_credentials(user_name):
+	'''
+	Function to display credentials saved by a user
+	'''
+	return Credential.display_credentials(user_name)        
 
 def main():
   
@@ -83,7 +88,7 @@ def main():
                             print('To login, enter your account details:')
                             user_name = input('Enter your username - ').strip()
                             password = str(input('Enter your password - '))
-                            user_exists = verify_user(user_name,password)
+                            user_exists = verify_user(username,password)
                             if user_exists == user_name:
                                     print(f'Welcome {user_name}. Please choose an option to continue.')
                                     print("-"*60)
@@ -112,7 +117,7 @@ def main():
                                                             print('Wrong option entered. Try again.')
                                              save_credential(create_credential(user_name,site_name,password))
                                              print(f'Credential Created: Site Name: {site_name} - Password: {password}')                                  
-                                    elif short_code == 'dc'
+                                    elif short_code == 'dc':
                                         if display_credentials(user_name):
                                                 print('list of all your credentials')
                                                 for credential in display_credentials(user_name):
