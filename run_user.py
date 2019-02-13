@@ -110,8 +110,15 @@ def main():
                                                              break
                                                      else:
                                                             print('Wrong option entered. Try again.')
-                            save_credential(create_credential(user_name,site_name,password))
-                            print(f'Credential Created: Site Name: {site_name} - Password: {password}')                                  
+                                                     save_credential(create_credential(user_name,site_name,password))
+                                                     print(f'Credential Created: Site Name: {site_name} - Password: {password}')                                  
+                                    elif short_code == 'dc'
+                                        if display_credentials(user_name):
+                                                print('list of all your credentials')
+                                                for credential in display_credentials(user_name):
+                                                        print(f'Site Name: {credential.site_name} -  Password: {credential.password}')
+                                        else:
+                                                print("NO credentials saved yet")                
 
                     elif short_code == 'dc':
 
