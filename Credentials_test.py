@@ -47,9 +47,9 @@ class TestCredentials(unittest.TestCase):
 		account.save_credentials()
 		self.assertEqual(len(Credential.credentials_list),2)
         
-    def tearDown(self):
+   
 
-
+	
    
 if __name__ == '__main__':
     unittest.main()

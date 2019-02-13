@@ -25,11 +25,11 @@ def check_existing_users(username):
     Function that check if a user exists with that username and return a Boolean
     '''
     return User.user_exist(username)
-def verify_user(user_name,password):
+def verify_user(username,password):
 	'''
 	Function that verifies the existance of the user before creating credentials
 	'''
-	checking_user = Credential.check_user(user_name,password)
+	checking_user = Credential.check_user(username,password)
 	return checking_user
 
 
@@ -86,11 +86,12 @@ def main():
                     elif short_code == 'lo':
                             print("-"*60)
                             print('To login, enter your account details:')
-                            user_name = input('Enter your username - ').strip()
+                            username = input('Enter your username - ').strip()
                             password = str(input('Enter your password - '))
                             user_exists = verify_user(username,password)
-                            if user_exists == user_name:
-                                    print(f'Welcome {user_name}. Please choose an option to continue.')
+                            if user_exists == username:
+                                    print(' ')
+                                    print(f'Welcome {username}. Please choose an option to continue.')
                                     print("-"*60)
                                     print(' cc-Create a Credential \n dc-Display Credentials \n ex-Exit')
                                     short_code = input('Enter a choice: ').lower()
